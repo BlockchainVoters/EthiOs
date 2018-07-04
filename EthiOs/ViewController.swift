@@ -28,15 +28,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.config = Configuration(network: .ropsten, nodeEndpoint: node, etherscanAPIKey: etherscan, debugPrints: true)
-        self.geth = Geth(configuration: self.config)
+        let acc = ChainAccount()
+        let mnemonic = acc.createAccount(identifier: "isaiahlima18", password: "1234")
 
-        self.createWallet()
+        print(#function, mnemonic)
 
-        self.getBalance()
-
-        
-
+//        self.config = Configuration(network: .ropsten, nodeEndpoint: node, etherscanAPIKey: etherscan, debugPrints: true)
+//        self.geth = Geth(configuration: self.config)
+//
+//        self.createWallet()
+//
+//        self.getBalance()
     }
 
     func createWallet() {
