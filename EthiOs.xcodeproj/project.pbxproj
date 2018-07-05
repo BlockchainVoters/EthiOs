@@ -19,6 +19,9 @@
 		E4E50ACB20ED80CC00296E10 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AC820ED80CC00296E10 /* Alamofire.framework */; };
 		E4E50ACD20ED822500296E10 /* ChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50ACC20ED822500296E10 /* ChainService.swift */; };
 		E4E50ACF20ED828F00296E10 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50ACE20ED828F00296E10 /* KeychainSwift.framework */; };
+		E4E50AD120ED95F200296E10 /* ChainABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50AD020ED95F200296E10 /* ChainABI.swift */; };
+		E4E50AD420EDA14900296E10 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD220EDA14900296E10 /* RealmSwift.framework */; };
+		E4E50AD520EDA14900296E10 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD320EDA14900296E10 /* Realm.framework */; };
 		E4E9D22520EC321100CE8B1D /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */; };
 		E4E9D22620EC321100CE8B1D /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22320EC321100CE8B1D /* EthereumKit.framework */; };
 		E4E9D22720EC321100CE8B1D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */; };
@@ -51,6 +54,9 @@
 		E4E50AC820ED80CC00296E10 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		E4E50ACC20ED822500296E10 /* ChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainService.swift; sourceTree = "<group>"; };
 		E4E50ACE20ED828F00296E10 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		E4E50AD020ED95F200296E10 /* ChainABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainABI.swift; sourceTree = "<group>"; };
+		E4E50AD220EDA14900296E10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		E4E50AD320EDA14900296E10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		E4E9D22320EC321100CE8B1D /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
 		E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E50AD420EDA14900296E10 /* RealmSwift.framework in Frameworks */,
+				E4E50AD520EDA14900296E10 /* Realm.framework in Frameworks */,
 				E4E50ACF20ED828F00296E10 /* KeychainSwift.framework in Frameworks */,
 				E4E50AC920ED80CC00296E10 /* AlamofireImage.framework in Frameworks */,
 				E4E50ACA20ED80CC00296E10 /* JASON.framework in Frameworks */,
@@ -136,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E50AC420ED808F00296E10 /* ChainAccount.swift */,
+				E4E50AD020ED95F200296E10 /* ChainABI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +152,8 @@
 		E4E9D22120EC321000CE8B1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4E50AD320EDA14900296E10 /* Realm.framework */,
+				E4E50AD220EDA14900296E10 /* RealmSwift.framework */,
 				E4E50ACE20ED828F00296E10 /* KeychainSwift.framework */,
 				E4E50AC820ED80CC00296E10 /* Alamofire.framework */,
 				E4E50AC620ED80CB00296E10 /* AlamofireImage.framework */,
@@ -265,6 +276,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			name = "Run Script Carthage";
 			outputPaths = (
@@ -281,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E458F8AC20EC303A00E75DE7 /* ViewController.swift in Sources */,
+				E4E50AD120ED95F200296E10 /* ChainABI.swift in Sources */,
 				E4E50ACD20ED822500296E10 /* ChainService.swift in Sources */,
 				E458F8AA20EC303A00E75DE7 /* AppDelegate.swift in Sources */,
 				E4E50AC520ED808F00296E10 /* ChainAccount.swift in Sources */,

@@ -3,3 +3,4 @@ github "delba/JASON" >= 3.0
 github "Alamofire/Alamofire" ~> 4.7
 github "Alamofire/AlamofireImage" ~> 3.3
 github "evgenyneu/keychain-swift" ~> 11.0
+github "realm/realm-cocoa"
