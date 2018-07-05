@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         let configuration = Configuration(network: ChainService.network, nodeEndpoint: ChainService.node, etherscanAPIKey: ChainService.etherscanKey, debugPrints: false)
         self.geth = Geth(configuration: configuration)
 
-        let encoded = "get_candidate(uint8)".sha3(.keccak256)
-        let bytes = "0x" + String(encoded.prefix(8)) + "000000000000000000000000000000000000000000000000000000000000001e"
+        let encoded = "get_candidates()".sha3(.keccak256)
+        let bytes = "0x" + String(encoded.prefix(8)) + "0000000000000000000000000000000000000000000000000000000000000000"
 
         self.geth.call(from: nil, to: ChainService.contractAddress, gasLimit: nil, gasPrice: nil, value: nil, data: bytes, blockParameter: .latest) { (result) in
             switch result {

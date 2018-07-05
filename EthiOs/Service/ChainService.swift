@@ -116,4 +116,10 @@ class ChainService {
             callback(.success(chainAbi))
         }
     }
+
+    class public func contract_viewcall(account_address: String, method: ChainContractMethod, callback: @escaping (ChainServiceStatus<[Any]>) -> Void) {
+
+        // to do: implementate ABI decode / encoder class
+
+    }
 }
