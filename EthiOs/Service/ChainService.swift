@@ -117,9 +117,36 @@ class ChainService {
         }
     }
 
-    class public func contract_viewcall(account_address: String, method: ChainContractMethod, callback: @escaping (ChainServiceStatus<[Any]>) -> Void) {
+    class public func contract_viewcall(account_address: String, method: ChainContractMethod, abiEncodedParams: String, callback: @escaping (ChainServiceStatus<String>) -> Void) {
 
-        // to do: implementate ABI decode / encoder class
+        if method.mutability != "view" {
+            let error = NSError(domain: NSCocoaErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey : "O método chamadi não é de leitura. Realize uma transação ou recorra a um método de leitura."])
+            callback(.failure(error))
+            return
+        }
+
+        let configuration = Configuration(network: network, nodeEndpoint: node, etherscanAPIKey: etherscanKey, debugPrints: false)
+        let geth = Geth(configuration: configuration)
+
+        var inputs = ""
+        for input in method.inputs {
+            inputs = inputs + input
+        }
+
+        let function = method.name + "(" + inputs + ")"
+        let encoded = function.sha3(.keccak256)
+        let call = "0x" + String(encoded.prefix(8))
+
+        let bytes = call + abiEncodedParams
+
+        geth.call(from: account_address, to: contractAddress, gasLimit: nil, gasPrice: nil, value: nil, data: bytes, blockParameter: .latest) { (result) in
+            switch result {
+            case .success(let obj):
+                print(#function, obj)
+            case .failure(let error):
+                print(#function, error.localizedDescription)
+            }
+        }
 
     }
 }

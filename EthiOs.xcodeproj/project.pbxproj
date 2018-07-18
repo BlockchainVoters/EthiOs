@@ -22,6 +22,7 @@
 		E4E50AD120ED95F200296E10 /* ChainABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50AD020ED95F200296E10 /* ChainABI.swift */; };
 		E4E50AD420EDA14900296E10 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD220EDA14900296E10 /* RealmSwift.framework */; };
 		E4E50AD520EDA14900296E10 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD320EDA14900296E10 /* Realm.framework */; };
+		E4E50EAE20FEAD4B00296E10 /* ABICoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50EAD20FEAD4B00296E10 /* ABICoder.swift */; };
 		E4E9D22520EC321100CE8B1D /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */; };
 		E4E9D22620EC321100CE8B1D /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22320EC321100CE8B1D /* EthereumKit.framework */; };
 		E4E9D22720EC321100CE8B1D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */; };
@@ -57,6 +58,7 @@
 		E4E50AD020ED95F200296E10 /* ChainABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainABI.swift; sourceTree = "<group>"; };
 		E4E50AD220EDA14900296E10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E4E50AD320EDA14900296E10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		E4E50EAD20FEAD4B00296E10 /* ABICoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABICoder.swift; sourceTree = "<group>"; };
 		E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		E4E9D22320EC321100CE8B1D /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
 		E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E50ACC20ED822500296E10 /* ChainService.swift */,
+				E4E50EAD20FEAD4B00296E10 /* ABICoder.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E50EAE20FEAD4B00296E10 /* ABICoder.swift in Sources */,
 				E458F8AC20EC303A00E75DE7 /* ViewController.swift in Sources */,
 				E4E50AD120ED95F200296E10 /* ChainABI.swift in Sources */,
 				E4E50ACD20ED822500296E10 /* ChainService.swift in Sources */,
