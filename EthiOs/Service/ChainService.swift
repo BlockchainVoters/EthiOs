@@ -37,7 +37,7 @@ class ChainService {
         }
     }
     static public let etherscanKey = "VCY6JC3G77VCFWYD7TMJW293W4KK9TT54R"
-    static public let contractAddress = "0x07ffe760Caf7634161a4daC57A7902f92E215acc"
+    static public let contractAddress = "0x57ac3ab7355a9279e95f525e55fe5a73e58f9acc"
     static private var etherscan: String {
         switch network {
         case .main:
