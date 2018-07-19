@@ -51,7 +51,14 @@ class ChainService {
         }
     }
 
+    static public var cache: [String : Any] = [:]
+
     class public func download_contract(callback: @escaping (ChainServiceStatus<ChainABI>) -> Void) {
+
+        if let abi = cache["abi"] as? ChainABI {
+            callback(.success(abi))
+            return
+        }
 
         guard let url = URL(string: etherscan + "?module=contract&action=getabi&address=" + contractAddress) else {
             let error = NSError(domain: NSCocoaErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey : "Endereço para download do contrato não encontrado."])
@@ -111,7 +118,7 @@ class ChainService {
             let chainAbi = ChainABI()
             chainAbi.methods.append(contentsOf: meths)
 
-            print(#function, chainAbi, meths[0].inputs)
+            cache["abi"] = chainAbi
 
             callback(.success(chainAbi))
         }
@@ -120,7 +127,7 @@ class ChainService {
     class public func contract_viewcall(account_address: String, method: ChainContractMethod, abiEncodedParams: String, callback: @escaping (ChainServiceStatus<String>) -> Void) {
 
         if method.mutability != "view" {
-            let error = NSError(domain: NSCocoaErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey : "O método chamadi não é de leitura. Realize uma transação ou recorra a um método de leitura."])
+            let error = NSError(domain: NSCocoaErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey : "O método chamado não é de leitura. Realize uma transação ou recorra a um método de leitura."])
             callback(.failure(error))
             return
         }
@@ -143,8 +150,9 @@ class ChainService {
             switch result {
             case .success(let obj):
                 print(#function, obj)
+                callback(.success(obj.replacingOccurrences(of: "0x", with: "")))
             case .failure(let error):
-                print(#function, error.localizedDescription)
+                callback(.failure(error))
             }
         }
 

@@ -99,4 +99,9 @@ class ABICoder {
 
         return body
     }
+
+    class func decode_bool(param: String) -> Bool {
+        let response = param.suffix(1)
+        return String(response) == "1"
+    }
 }

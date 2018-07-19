@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E458F8AA20EC303A00E75DE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F8A920EC303A00E75DE7 /* AppDelegate.swift */; };
-		E458F8AC20EC303A00E75DE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F8AB20EC303A00E75DE7 /* ViewController.swift */; };
 		E458F8AF20EC303A00E75DE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E458F8AD20EC303A00E75DE7 /* Main.storyboard */; };
 		E458F8B120EC303B00E75DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E458F8B020EC303B00E75DE7 /* Assets.xcassets */; };
 		E458F8B420EC303B00E75DE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E458F8B220EC303B00E75DE7 /* LaunchScreen.storyboard */; };
@@ -23,6 +22,9 @@
 		E4E50AD420EDA14900296E10 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD220EDA14900296E10 /* RealmSwift.framework */; };
 		E4E50AD520EDA14900296E10 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E50AD320EDA14900296E10 /* Realm.framework */; };
 		E4E50EAE20FEAD4B00296E10 /* ABICoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50EAD20FEAD4B00296E10 /* ABICoder.swift */; };
+		E4E50EB1210004BC00296E10 /* MethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50EB0210004BC00296E10 /* MethodsVC.swift */; };
+		E4E50EB321000D5200296E10 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50EB221000D5200296E10 /* AccountVC.swift */; };
+		E4E50EB6210010A000296E10 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E50EB5210010A000296E10 /* UIViewControllerExtension.swift */; };
 		E4E9D22520EC321100CE8B1D /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */; };
 		E4E9D22620EC321100CE8B1D /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22320EC321100CE8B1D /* EthereumKit.framework */; };
 		E4E9D22720EC321100CE8B1D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */; };
@@ -41,7 +43,6 @@
 /* Begin PBXFileReference section */
 		E458F8A620EC303A00E75DE7 /* EthiOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EthiOs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E458F8A920EC303A00E75DE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E458F8AB20EC303A00E75DE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E458F8AE20EC303A00E75DE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E458F8B020EC303B00E75DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E458F8B320EC303B00E75DE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +60,9 @@
 		E4E50AD220EDA14900296E10 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E4E50AD320EDA14900296E10 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E4E50EAD20FEAD4B00296E10 /* ABICoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABICoder.swift; sourceTree = "<group>"; };
+		E4E50EB0210004BC00296E10 /* MethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodsVC.swift; sourceTree = "<group>"; };
+		E4E50EB221000D5200296E10 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		E4E50EB5210010A000296E10 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E4E9D22220EC321100CE8B1D /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		E4E9D22320EC321100CE8B1D /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
 		E4E9D22420EC321100CE8B1D /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -113,10 +117,11 @@
 		E458F8A820EC303A00E75DE7 /* EthiOs */ = {
 			isa = PBXGroup;
 			children = (
+				E4E50EB42100108C00296E10 /* Extensions */,
+				E4E50EAF2100048D00296E10 /* Controller */,
 				E4E50AC320ED806200296E10 /* Model */,
 				E4E50AC220ED805A00296E10 /* Service */,
 				E458F8A920EC303A00E75DE7 /* AppDelegate.swift */,
-				E458F8AB20EC303A00E75DE7 /* ViewController.swift */,
 				E458F8AD20EC303A00E75DE7 /* Main.storyboard */,
 				E458F8B020EC303B00E75DE7 /* Assets.xcassets */,
 				E458F8B220EC303B00E75DE7 /* LaunchScreen.storyboard */,
@@ -150,6 +155,23 @@
 				E4E50AD020ED95F200296E10 /* ChainABI.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E4E50EAF2100048D00296E10 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4E50EB0210004BC00296E10 /* MethodsVC.swift */,
+				E4E50EB221000D5200296E10 /* AccountVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E4E50EB42100108C00296E10 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4E50EB5210010A000296E10 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E4E9D22120EC321000CE8B1D /* Frameworks */ = {
@@ -297,9 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E50EAE20FEAD4B00296E10 /* ABICoder.swift in Sources */,
-				E458F8AC20EC303A00E75DE7 /* ViewController.swift in Sources */,
 				E4E50AD120ED95F200296E10 /* ChainABI.swift in Sources */,
 				E4E50ACD20ED822500296E10 /* ChainService.swift in Sources */,
+				E4E50EB321000D5200296E10 /* AccountVC.swift in Sources */,
+				E4E50EB6210010A000296E10 /* UIViewControllerExtension.swift in Sources */,
+				E4E50EB1210004BC00296E10 /* MethodsVC.swift in Sources */,
 				E458F8AA20EC303A00E75DE7 /* AppDelegate.swift in Sources */,
 				E4E50AC520ED808F00296E10 /* ChainAccount.swift in Sources */,
 			);
