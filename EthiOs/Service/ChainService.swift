@@ -176,6 +176,10 @@ class ChainService {
             inputs = inputs + split[1].replacingOccurrences(of: " ", with: "")
         }
 
+        if method.name == "vote" {
+            inputs = "uint8,string"
+        }
+
         let function = method.name + "(" + inputs + ")"
         let encoded = function.sha3(.keccak256)
         let call = /* "0x" + */ String(encoded.prefix(8))

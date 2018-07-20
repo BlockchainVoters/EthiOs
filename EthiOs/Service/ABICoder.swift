@@ -156,10 +156,10 @@ class ABICoder {
         return (name,number,party,vice)
     }
 
-    class func encode_vote(vote: UInt8, _hash: String) -> String {
+    class func encode_vote(vote: UInt8, _hash: String) -> String? {
 
         guard let passdata = _hash.data(using: .utf8) else {
-            return ""
+            return nil
         }
 
         let hash = passdata.sha256().toHexString()

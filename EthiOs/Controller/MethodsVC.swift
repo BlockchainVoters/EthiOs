@@ -183,8 +183,9 @@ extension MethodsVC: UITableViewDataSource {
             }
             let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             let call = UIAlertAction(title: "Executar", style: .default) { (action) in
-                if let text = field.text {
+                if var text = field.text {
                     if text == "" { return }
+                    text = text + ChainAccount.address
                     guard let encoded = ABICoder.encode_hash(param: text) else {
                         return
                     }
@@ -251,6 +252,46 @@ extension MethodsVC: UITableViewDataSource {
                     self.showAlertController(withTitle: "Erro :(", andMessage: error.localizedDescription)
                 }
             }
+
+        case "vote":
+
+            var numberTF: UITextField = UITextField()
+            var hashTF: UITextField = UITextField()
+
+            let controller = UIAlertController(title: method.name, message: "Insira os dados abaixo", preferredStyle: .alert)
+            controller.addTextField { (tf) in
+                tf.isSecureTextEntry = true
+                tf.placeholder = method.inputs[1]
+                hashTF = tf
+            }
+            controller.addTextField { (tf) in
+                tf.keyboardType = .numberPad
+                tf.placeholder = method.inputs[0]
+                numberTF = tf
+            }
+            let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+            let call = UIAlertAction(title: "Executar", style: .default) { (action) in
+                if let number = numberTF.text, var _hash = hashTF.text {
+                    if number == "" || _hash == "" { return }
+                    _hash = _hash + ChainAccount.address
+                    guard let encoded = ABICoder.encode_vote(vote: UInt8(number) ?? 0, _hash: _hash) else {
+                        return
+                    }
+                    self.spinner.startAnimating()
+                    ChainService.contract_transaction(account_address: ChainAccount.address, method: method, abiEncodedParams: encoded) { (status) in
+                        self.spinner.stopAnimating()
+                        switch status {
+                        case .success(let msg):
+                            self.showAlertController(withTitle: "Resposta:", andMessage: "\(msg)")
+                        case .failure(let error):
+                            self.showAlertController(withTitle: "Erro :(", andMessage: error.localizedDescription)
+                        }
+                    }
+                }
+            }
+            controller.addAction(cancel)
+            controller.addAction(call)
+            self.present(controller, animated: true, completion: nil)
 
         default:
             print(#function, "função não implementada")

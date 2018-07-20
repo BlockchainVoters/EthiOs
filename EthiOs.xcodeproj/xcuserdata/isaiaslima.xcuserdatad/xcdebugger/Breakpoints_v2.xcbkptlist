@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EthiOs/Controller/MethodsVC.swift"
-            timestampString = "553745536.862638"
+            timestampString = "553747077.292747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EthiOs/Service/ChainService.swift"
-            timestampString = "553745536.863281"
+            timestampString = "553747077.292856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "contract_transaction(account_address:method:abiEncodedParams:callback:)"
             landmarkType = "7">
          </BreakpointContent>
