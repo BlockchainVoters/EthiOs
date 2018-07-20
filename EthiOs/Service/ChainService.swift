@@ -137,7 +137,8 @@ class ChainService {
 
         var inputs = ""
         for input in method.inputs {
-            inputs = inputs + input
+            let split = input.split(separator: ":")
+            inputs = inputs + split[1].replacingOccurrences(of: " ", with: "")
         }
 
         let function = method.name + "(" + inputs + ")"
