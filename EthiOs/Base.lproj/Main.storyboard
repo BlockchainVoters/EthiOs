@@ -139,10 +139,28 @@
                                     <action selector="access:" destination="xjD-rB-mhM" eventType="touchUpInside" id="BKs-n8-rnx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etl-vl-zdg">
+                                <rect key="frame" x="152" y="550" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LJf-Hg-D9m"/>
+                                    <constraint firstAttribute="width" constant="71" id="t1k-0c-f4h"/>
+                                </constraints>
+                                <state key="normal" title="Qtd. Ether"/>
+                                <connections>
+                                    <action selector="consult:" destination="xjD-rB-mhM" eventType="touchUpInside" id="D3i-jP-hWb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwQ-y1-HNL">
+                                <rect key="frame" x="16" y="237" width="343" height="305"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NOD-Mn-CNm" firstAttribute="centerX" secondItem="E50-1y-wim" secondAttribute="centerX" id="0zp-4D-NMT"/>
+                            <constraint firstItem="etl-vl-zdg" firstAttribute="centerX" secondItem="E50-1y-wim" secondAttribute="centerX" id="1ji-Wb-QZM"/>
                             <constraint firstItem="p4u-4O-R4N" firstAttribute="top" secondItem="WPP-1Y-Vtr" secondAttribute="bottom" constant="8" id="567-Wb-1ew"/>
                             <constraint firstItem="VL5-Y3-0YA" firstAttribute="trailing" secondItem="WPP-1Y-Vtr" secondAttribute="trailing" constant="99" id="64u-cu-8eU"/>
                             <constraint firstItem="p4u-4O-R4N" firstAttribute="leading" secondItem="VL5-Y3-0YA" secondAttribute="leading" constant="99" id="8gp-2k-mDe"/>
@@ -150,11 +168,17 @@
                             <constraint firstItem="WPP-1Y-Vtr" firstAttribute="top" secondItem="VL5-Y3-0YA" secondAttribute="top" constant="59" id="JTe-6x-XjO"/>
                             <constraint firstItem="NOD-Mn-CNm" firstAttribute="top" secondItem="p4u-4O-R4N" secondAttribute="bottom" constant="8" id="WbF-W6-oZf"/>
                             <constraint firstItem="VL5-Y3-0YA" firstAttribute="trailing" secondItem="p4u-4O-R4N" secondAttribute="trailing" constant="99" id="Wrp-pF-w4I"/>
+                            <constraint firstItem="VL5-Y3-0YA" firstAttribute="bottom" secondItem="etl-vl-zdg" secondAttribute="bottom" constant="38" id="XxD-yZ-KQv"/>
+                            <constraint firstItem="TwQ-y1-HNL" firstAttribute="top" secondItem="NOD-Mn-CNm" secondAttribute="bottom" constant="8" id="mcI-sd-Zbe"/>
+                            <constraint firstItem="VL5-Y3-0YA" firstAttribute="trailing" secondItem="TwQ-y1-HNL" secondAttribute="trailing" constant="16" id="oic-xN-WFt"/>
+                            <constraint firstItem="TwQ-y1-HNL" firstAttribute="leading" secondItem="VL5-Y3-0YA" secondAttribute="leading" constant="16" id="wu4-Hp-MsR"/>
+                            <constraint firstItem="etl-vl-zdg" firstAttribute="top" secondItem="TwQ-y1-HNL" secondAttribute="bottom" constant="8" id="xio-k4-H8r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VL5-Y3-0YA"/>
                     </view>
                     <navigationItem key="navigationItem" id="tsa-Pl-wZa"/>
                     <connections>
+                        <outlet property="etherTF" destination="TwQ-y1-HNL" id="R5H-6J-X6C"/>
                         <outlet property="passwordTF" destination="p4u-4O-R4N" id="4dR-e1-70Y"/>
                         <outlet property="usernameTF" destination="WPP-1Y-Vtr" id="TPv-CJ-Ucf"/>
                     </connections>

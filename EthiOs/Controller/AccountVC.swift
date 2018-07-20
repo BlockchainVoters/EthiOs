@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import EthereumKit
+import CryptoEthereumSwift
 
 class AccountVC: UIViewController {
     
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var etherTF: UILabel!
+
+    fileprivate var config: Configuration!
+    fileprivate var geth: Geth!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +26,12 @@ class AccountVC: UIViewController {
         self.passwordTF.delegate = self
 
         self.navigationItem.title = ChainAccount.address
-        self.navigationItem.prompt = ChainAccount.privKey
+//        self.navigationItem.prompt = ChainAccount.privKey
+
+        self.config = Configuration(network: ChainService.network, nodeEndpoint: ChainService.node, etherscanAPIKey: ChainService.etherscanKey, debugPrints: false)
+        self.geth = Geth(configuration: self.config)
+
+        self.etherTF.text = "0 wei"
     }
 
     @IBAction func access(_ sender: Any) {
@@ -51,6 +62,20 @@ class AccountVC: UIViewController {
             self.showAlertController(withTitle: "Eba :)", andMessage: "Conta recuperada com sucesso.")
             self.navigationItem.title = ChainAccount.address
             self.navigationItem.prompt = ChainAccount.privKey
+        }
+    }
+
+
+    @IBAction func consult(_ sender: Any) {
+        self.geth.getBalance(of: ChainAccount.address) { (result) in
+            switch result {
+            case .failure(let error):
+                print(#function, error)
+                self.etherTF.text = "error"
+            case .success(let balance):
+                print(#function, balance)
+                self.etherTF.text = "\(balance.wei) wei"
+            }
         }
     }
 }
