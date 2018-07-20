@@ -239,6 +239,19 @@ extension MethodsVC: UITableViewDataSource {
             controller.addAction(call)
             self.present(controller, animated: true, completion: nil)
 
+        case "join_voter":
+
+            self.spinner.startAnimating()
+            ChainService.contract_transaction(account_address: ChainAccount.address, method: method, abiEncodedParams: "0000000000000000000000000000000000000000000000000000000000000000") { (status) in
+                self.spinner.stopAnimating()
+                switch status {
+                case .success(let msg):
+                    self.showAlertController(withTitle: "Resposta:", andMessage: "\(msg)")
+                case .failure(let error):
+                    self.showAlertController(withTitle: "Erro :(", andMessage: error.localizedDescription)
+                }
+            }
+
         default:
             print(#function, "função não implementada")
             self.showAlertController(withTitle: "Erro :(", andMessage: "Este método de contrato não foi implementado ainda pela plataforma.")

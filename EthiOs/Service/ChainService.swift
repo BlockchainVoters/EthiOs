@@ -158,4 +158,60 @@ class ChainService {
         }
 
     }
+
+    class public func contract_transaction(account_address: String, method: ChainContractMethod, abiEncodedParams: String, callback: @escaping (ChainServiceStatus<Bool>) -> Void) {
+
+        if method.mutability != "nonpayable" {
+            let error = NSError(domain: NSCocoaErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey : "O método chamado não é uma transação."])
+            callback(.failure(error))
+            return
+        }
+
+        let configuration = Configuration(network: network, nodeEndpoint: node, etherscanAPIKey: etherscanKey, debugPrints: false)
+        let geth = Geth(configuration: configuration)
+
+        var inputs = ""
+        for input in method.inputs {
+            let split = input.split(separator: ":")
+            inputs = inputs + split[1].replacingOccurrences(of: " ", with: "")
+        }
+
+        let function = method.name + "(" + inputs + ")"
+        let encoded = function.sha3(.keccak256)
+        let call = /* "0x" + */ String(encoded.prefix(8))
+
+        let bytes = call + abiEncodedParams
+        let data = Data(hex: bytes)
+
+        geth.getTransactionCount(of: ChainAccount.address) { (result) in
+            switch result {
+            case .failure(let error):
+                callback(.failure(error))
+            case .success(let count):
+                geth.getGasPrice(completionHandler: { (res) in
+                    switch res {
+                    case .failure(let err):
+                        callback(.failure(err))
+                    case .success(let wei):
+                        let raw = RawTransaction(wei: "0", to: contractAddress, gasPrice: Int(wei), gasLimit: 3000000, nonce: count, data: data)
+                        let wallet = Wallet(network: network, privateKey: ChainAccount.privKey, debugPrints: false)
+                        do {
+                            let tx = try wallet.sign(rawTransaction: raw)
+                            geth.sendRawTransaction(rawTransaction: tx, completionHandler: { (r) in
+                                switch r {
+                                case .failure(let e):
+                                    callback(.failure(e))
+                                case .success(let txHash):
+                                    print(#function, txHash.id)
+                                    callback(.success(true))
+                                }
+                            })
+                        } catch {
+                            callback(.failure(error))
+                        }
+                    }
+                })
+            }
+        }
+    }
 }
